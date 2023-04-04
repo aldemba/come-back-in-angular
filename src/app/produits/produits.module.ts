@@ -20,6 +20,9 @@ import { CardDetailsComponent } from './card-details/card-details.component';
   imports: [
     CommonModule,
     ProduitsRoutingModule
+  ],
+  exports: [
+    CatalogueComponent
   ]
 })
 export class ProduitsModule { }
