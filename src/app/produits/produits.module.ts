@@ -7,6 +7,7 @@ import { DetailsComponent } from './details/details.component';
 import { CardComponent } from './card/card.component';
 import { ListcardComponent } from './listcard/listcard.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
+import { LayoutsModule } from '../client/composants/layouts/layouts.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CardDetailsComponent } from './card-details/card-details.component';
   ],
   imports: [
     CommonModule,
-    ProduitsRoutingModule
+    ProduitsRoutingModule,
+    LayoutsModule
   ],
   exports: [
     CatalogueComponent
