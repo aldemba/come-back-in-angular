@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CatalogueService } from 'src/app/shared/services/catalogue.service';
 
 @Component({
   selector: 'app-catalogue',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./catalogue.component.css']
 })
 export class CatalogueComponent {
+
+  produit:any
+
+  constructor(private catalogueservice:CatalogueService){
+
+  }
+
+  ngOnInit():void {
+    this.catalogueservice.all().subscribe((data)=>{
+      console.log(data);
+      this.produit=data
+      
+    })
+  }
 
 }
