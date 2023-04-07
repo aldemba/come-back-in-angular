@@ -1,7 +1,11 @@
     <div class="row">
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
+
+            <ng-container *ngFor="let produitcard of catalogueVersCard">
+
+                <app-card [listCardVersCard]="produitcard" ></app-card>
+
+            </ng-container>
+           
     </div>
 
 

@@ -1,9 +1,9 @@
 <div class="card mb-3" style="width: 19rem;">
-    <img class="card-img-top" style="height: 10rem" src="">
+    <img class="card-img-top" style="height: 10rem" src="data:image/PNG;base64,{{listCardVersCard.image}}">
     <div class="card-body">
-      <h5 class="card-title">F</h5>
-      <p class="card-text"></p>
-      <small class="card-text"></small>
+      <h5 class="card-title">{{ listCardVersCard.prix }}F</h5>
+      <p class="card-text">{{ listCardVersCard.nom }}</p>
+      <small class="card-text">{{ listCardVersCard.description }}</small>
       <a routerLink=""class="btn btn-success tout">Details</a>
       <button class="colo btn-warning tout">Ajouter au panier</button>
     </div>
