@@ -24,7 +24,8 @@ import { LayoutsModule } from '../client/composants/layouts/layouts.module';
     LayoutsModule
   ],
   exports: [
-    CatalogueComponent
+    CatalogueComponent,
+    DetailsComponent
   ]
 })
 export class ProduitsModule { }
