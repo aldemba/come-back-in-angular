@@ -18,6 +18,8 @@ ngOnInit():void{
 let id:number=this.route.snapshot.params['id']
 this.dservice.getDetails(id).subscribe((data)=>{
   this.details=data
+  console.log(data);
+  
 })
 
 }

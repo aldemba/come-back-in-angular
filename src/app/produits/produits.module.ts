@@ -8,6 +8,7 @@ import { CardComponent } from './card/card.component';
 import { ListcardComponent } from './listcard/listcard.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { LayoutsModule } from '../client/composants/layouts/layouts.module';
+import { ListdetailsComponent } from './listdetails/listdetails.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { LayoutsModule } from '../client/composants/layouts/layouts.module';
     DetailsComponent,
     CardComponent,
     ListcardComponent,
-    CardDetailsComponent
+    CardDetailsComponent,
+    ListdetailsComponent
   ],
   imports: [
     CommonModule,

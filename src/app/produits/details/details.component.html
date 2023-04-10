@@ -1,1 +1,182 @@
-<p>details works!</p>
+
+   
+
+<ng-container >
+    <app-header></app-header>
+    <main class="mt-5 pt-4 ">
+      <div class="container dark-grey-text mt-5">
+  
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+  
+          <!--Grid column-->
+          <div class="col-md-6 mb-4" >
+  
+            <img src="data:image/PNG;base64,{{details?.produit?.image}}" class="img-fluid" alt="">
+  
+            
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-md-6 mb-4">
+  
+            <!--Content-->
+            <div class="p-4">
+  
+              <div class="lead">
+                <h3>Nom: {{details?.produit?.nom}} </h3>
+              </div>
+  
+              <div class="lead font-weight-bold"> <h4>Prix: F</h4></div>
+  
+              <p>descript</p>
+  
+              <form class="d-flex justify-content-left">
+                <!-- Default input -->
+                <input #quantity type="number" min="1" value="1" aria-label="Search" class="form-control" style="width: 100px">
+                <button class="btn btn-warning btn-md my-0 p" >Ajoutez au panier
+                  <i class="fas fa-shopping-cart ml-1"></i>
+                </button>
+  
+              </form>
+  
+            </div>
+            <!--Content-->
+  
+          </div>
+          <!--Grid column-->
+  
+        </div>
+       <ng-container *ngIf="details.produit['@type']=='Menu'">
+        <h5>Composition du menu</h5>
+        <div >
+        
+        <!--  <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Nom Produit</th>
+                <th scope="col">Quantite</th>
+                <th scope="col">Prix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let burger of details.produit.menuBurgers">
+  
+              <td> <img src="data:image/PNG;base64,{{ burger.burger.image }}" alt="" style="width: 4rem;">  </td>
+              <td> {{ burger.burger.nom }} </td>
+              <td> {{ burger.quantite }} </td>
+              <td> {{ burger.burger.prix }} </td>
+  
+              </tr>
+  
+              <tr *ngFor="let portion of details.produit.menuPortions">
+  
+                <td> <img src="data:image/PNG;base64,{{ portion.portionfrite.image }}" alt="" style="width: 3rem;">  </td>
+                <td> {{ portion.portionfrite.nom }} </td>
+                <td> {{ portion.quantite }} </td>
+                <td> {{ portion.portionfrite.prix }} </td>
+    
+                </tr>
+  
+                <tr *ngFor="let menutaille of details.produit.menuTailles">
+                  <div class="accordion w-100" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            {{menutaille.taille.libelle}}
+                          </button>
+                        
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                          <ng-container *ngFor=" let tailleBoisson of menutaille.taille.tailleBoissons ">
+                            
+                            <img src="data:image/PNG;base64,{{ tailleBoisson.boisson.image }}" alt="" style="width: 4rem;">
+                            <input type="checkbox" name="" id="">
+                          </ng-container>
+                        </div>
+                    </div>
+                  </div>
+                    
+                  
+                  </tr>
+    
+  
+  
+            </tbody>
+  
+          </table>
+        -->
+        </div>
+  
+       </ng-container>
+  
+        <hr>
+      <h5>Portions de Frites</h5>
+  
+  <div class="b">
+       
+        <app-listdetails></app-listdetails>
+  
+      </div>
+      <h5>Boissons</h5>
+      
+      <div class="b">
+        
+        <div class="bg">
+        </div>
+        
+        <app-listdetails></app-listdetails>
+      </div>
+      <!--Grid row-->
+  
+      </div>
+    </main>
+    <!--Main layout-->
+  
+    <!--Footer-->
+    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+  
+      <!--Call to action-->
+   
+      <!--/.Call to action-->
+  
+      <hr class="my-4">
+  
+      <!-- Social icons -->
+      <div class="pb-4">
+        <a target="_blank">
+          <i class="fab fa-facebook-f mr-3"></i>
+        </a>
+  
+        <a  target="_blank">
+          <i class="fab fa-twitter mr-3"></i>
+        </a>
+  
+        <a  target="_blank">
+          <i class="fab fa-youtube mr-3"></i>
+        </a>
+  
+        <a  target="_blank">
+          <i class="fab fa-google-plus-g mr-3"></i>
+        </a>
+  
+      
+      </div>
+      <!-- Social icons -->
+  
+      <!--Copyright-->
+      <div class="footer-copyright py-3" >
+        
+        <a target="_blank"> @Copyright--Golden Burger </a>
+      </div>
+      
+      <!--/.Copyright-->
+  
+    </footer>
+  </ng-container>
+  
+    <!--/.Footer-->
+  
+
