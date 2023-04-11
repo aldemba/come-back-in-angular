@@ -1,0 +1,9 @@
+
+.allist{
+    display: flex;
+    height: 12rem;
+    overflow-x: auto;
+    gap: 2%;
+    overflow-y: hidden;
+    
+}

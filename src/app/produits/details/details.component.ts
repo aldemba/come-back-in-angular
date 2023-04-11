@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Details } from 'src/app/shared/models/details';
 import { DetailsService } from 'src/app/shared/services/details.service';
 
 @Component({

@@ -1,6 +1,14 @@
 
 <app-header></app-header>
 
-<app-listcard [catalogueVersCard]="produit"></app-listcard>
+<ng-container *ngIf="produit==null">
+    <div class="loader"></div>
+</ng-container>
+
+<ng-container *ngIf="produit!=null" >
+
+    <app-listcard [catalogueVersCard]="produit"></app-listcard>
+
+</ng-container>
 
 <app-footer></app-footer>

@@ -1,0 +1,11 @@
+.dispo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dispo-bis{
+    display: flex;
+    gap: 9%;
+}

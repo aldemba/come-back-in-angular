@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Details } from 'src/app/shared/models/details';
 
 @Component({
   selector: 'app-listdetails',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./listdetails.component.css']
 })
 export class ListdetailsComponent {
+
+@Input() listedescomplements:Details[]|undefined=[]
+
 
 }

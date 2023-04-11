@@ -28,9 +28,9 @@
                 <h3>Nom: {{details?.produit?.nom}} </h3>
               </div>
   
-              <div class="lead font-weight-bold"> <h4>Prix: F</h4></div>
+              <div class="lead font-weight-bold"> <h4>Prix: {{details?.produit?.prix}} F</h4></div>
   
-              <p>descript</p>
+              <p>{{details?.produit?.description}}</p>
   
               <form class="d-flex justify-content-left">
                 <!-- Default input -->
@@ -117,7 +117,7 @@
   
   <div class="b">
        
-        <app-listdetails></app-listdetails>
+        <app-listdetails [listedescomplements]="details?.boissons"></app-listdetails>
   
       </div>
       <h5>Boissons</h5>
@@ -127,7 +127,7 @@
         <div class="bg">
         </div>
         
-        <app-listdetails></app-listdetails>
+        <app-listdetails [listedescomplements]="details?.portions" ></app-listdetails>
       </div>
       <!--Grid row-->
   
