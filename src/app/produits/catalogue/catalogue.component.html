@@ -1,5 +1,5 @@
 
-<app-header></app-header>
+<app-header (info)="clickchanged($event)"></app-header>
 
 <ng-container *ngIf="produit==null">
     <div class="loader"></div>

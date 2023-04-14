@@ -22,4 +22,40 @@ export class CatalogueComponent {
     })
   }
 
+  // filtreCategories(category:string){
+  //   this.catalogueservice.all().subscribe((data)=>{
+  //       if (category=="Burger" || category=="Menu") {
+  //       this.produit= data.produit.filter(c=>c.type=category)
+  //         console.log("tyujk");
+          
+  //       }else{
+  //         this.produit=data.produit
+  //         console.log("no");
+          
+  //       }
+  //   })
+
+
+  // }
+
+  clickchanged(type:string){
+    switch (type) {
+      case "Burger":
+    this.catalogueservice.all().subscribe((data)=>this.produit=data.burger)
+        
+        break;
+        case "Menu":
+        this.catalogueservice.all().subscribe((data)=>this.produit=data.menu)
+      
+          break;
+    
+      default:
+        this.catalogueservice.all().subscribe((data)=>this.produit=data.produit)
+
+        break;
+    }
+  }
+
+
+
 }

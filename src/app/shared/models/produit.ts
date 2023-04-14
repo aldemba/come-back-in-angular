@@ -6,5 +6,6 @@ export interface Produit {
     quantite:number
     prix:number
     "@type":string
+    type:string
 
 }
