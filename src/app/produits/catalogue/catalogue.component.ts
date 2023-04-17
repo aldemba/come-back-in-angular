@@ -9,6 +9,7 @@ import { CatalogueService } from 'src/app/shared/services/catalogue.service';
 export class CatalogueComponent {
 
   produit:any
+  found:Boolean=true
 
   constructor(private catalogueservice:CatalogueService){
 
