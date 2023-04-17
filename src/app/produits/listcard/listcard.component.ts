@@ -16,7 +16,7 @@ export class ListcardComponent {
     this.search.resultSearch$.subscribe((value)=>{
       this.filterProducts(value);
       console.log(this.CatalogueFiltre);
-      
+      //je dois changer CatalogueFiltre par catalogueVersCard si je veux filtrer par categories qui ne marche plus donc à revoir
     })
   }
 
