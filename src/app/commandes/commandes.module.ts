@@ -14,6 +14,10 @@ import { MesCommandesComponent } from './mes-commandes/mes-commandes.component';
   imports: [
     CommonModule,
     CommandesRoutingModule
+  ],
+  exports:[
+    PanierComponent,
+    MesCommandesComponent
   ]
 })
 export class CommandesModule { }
