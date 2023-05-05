@@ -125,4 +125,18 @@ export class PanierService {
     localStorage.setItem("panier", JSON.stringify([]));
   }
 
+
+  PricePanier(){
+    let tab=0
+    this.achats.pipe(
+      map((produits) => {
+        produits.forEach((element:any) =>{
+          tab+=(element.prix * element.quantite)
+        });
+        localStorage.setItem('produit', JSON.stringify(produits));
+      })
+    ).subscribe();
+    return tab
+  }
+
 }

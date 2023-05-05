@@ -5,6 +5,6 @@
       <p class="card-text">{{ listCardVersCard.nom }}</p>
       <small class="card-text">{{ listCardVersCard.description }}</small>
       <a routerLink="/client/details/{{listCardVersCard.id}}"class="btn btn-success tout">Details</a>
-      <button class="colo btn-warning tout">Ajouter au panier</button>
+      <button class="colo btn-warning tout" (click)="addToCart(listCardVersCard)">Ajouter au panier</button>
     </div>
  </div>

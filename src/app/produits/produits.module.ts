@@ -23,7 +23,7 @@ import { ListdetailsComponent } from './listdetails/listdetails.component';
   imports: [
     CommonModule,
     ProduitsRoutingModule,
-    LayoutsModule
+    LayoutsModule,
   ],
   exports: [
     CatalogueComponent,

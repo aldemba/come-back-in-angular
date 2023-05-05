@@ -4,6 +4,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
 {path:'client', loadChildren: ()=>import('./client/client.module').then(m=>m.ClientModule)},
+{path:'panier',loadChildren:()=>import('./commandes/commandes.module').then(m=>m.CommandesModule)},
 {path:'', redirectTo:'client',pathMatch:'full'},
 {path:'error', component:NotFoundComponent},
 {path:'**', redirectTo:'/error'},
