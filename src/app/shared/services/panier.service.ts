@@ -20,7 +20,7 @@ export class PanierService {
       this.mesAchatSubject.next(mesProduitsDuPanier);
   }
 
-  ajouterAuPanier(produit: Produit)
+  ajouterAuPanier(produit: Produit,quantite:number)
   {
     this.achats.pipe(
       take(1),
@@ -39,7 +39,7 @@ export class PanierService {
 
             if(!found) //Si on ne trouve pas le produit dans le panier on l'ajoute
             {
-              produit = Object.assign({}, produit, {"quantite":1}) //qte du produit for the very first time
+              produit = Object.assign({}, produit, {"quantite":quantite}) //qte du produit for the very first time
 
               produits.push(produit);
             }
@@ -52,7 +52,7 @@ export class PanierService {
               // }
                 produits.forEach(p => {
                   if(p.id == produit.id)
-                    p.quantite++;
+                    p.quantite+=Number(quantite) ;
                 })
             }
           }

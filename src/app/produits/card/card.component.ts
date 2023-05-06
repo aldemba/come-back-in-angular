@@ -13,8 +13,8 @@ export class CardComponent {
 
  constructor(private panier:PanierService){}
 
- addToCart(produit:Produit){
-  this.panier.ajouterAuPanier(produit);
+ addToCart(produit:Produit,quantite:number){
+  this.panier.ajouterAuPanier(produit,quantite);
  }
 
 }
