@@ -17,9 +17,9 @@
                        <div class="row text-muted">{{cart.nom}}</div>
                     </div>
                     <div class="col">
-                        <a>-</a>
+                        <span style="width: 40px; cursor:pointer" (click)="incrementOuDecrement(cart,-1)">-</span>
                         <a class="border">{{cart.quantite}}</a>
-                        <a>+</a>
+                       <span style="width: 40px; cursor:pointer" (click)="incrementOuDecrement(cart,1)">+</span>
                     </div>
                     <div class="col"> {{cart.prix * cart.quantite}}FCFA <span class="close"></span></div>
                 </div> 
@@ -28,7 +28,7 @@
       
        
         
-            <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+            <div class="back-to-shop"><a routerLink="/client">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
         </div>
         <div class="col-md-4 summary">
             <div><h5><b>Summary</b></h5></div>

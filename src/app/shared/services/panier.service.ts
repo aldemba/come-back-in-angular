@@ -107,7 +107,7 @@ export class PanierService {
                   if(produit.id == p.id && produit.nom == p.nom)
                     if(plusOuMoins == 1)  // dans un panier pour chaque produit on a les boutons +1 et -1 pour augmenter les quantités 
                       p.quantite++  //si on clique sur 1, augmente la quantite de 1
-                    else if(p.quantite > 1) // si on clique sur -1 et que le produit sur lequel on a cliqué a une quantite >1 
+                    else if(plusOuMoins == -1 && p.quantite > 1) // si on clique sur -1 et que le produit sur lequel on a cliqué a une quantite >1 
                       p.quantite--; //alors diminue de 1 la quantite du produit
                 })
             }
