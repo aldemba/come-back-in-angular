@@ -9,6 +9,7 @@ import { ListcardComponent } from './listcard/listcard.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { LayoutsModule } from '../client/composants/layouts/layouts.module';
 import { ListdetailsComponent } from './listdetails/listdetails.component';
+import { BorderDirective } from './border.directive';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ListdetailsComponent } from './listdetails/listdetails.component';
     CardComponent,
     ListcardComponent,
     CardDetailsComponent,
-    ListdetailsComponent
+    ListdetailsComponent,
+    BorderDirective
   ],
   imports: [
     CommonModule,
