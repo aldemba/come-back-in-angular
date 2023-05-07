@@ -9,13 +9,13 @@ import { PanierService } from 'src/app/shared/services/panier.service';
 })
 export class PanierComponent {
 
-  
+  somme=0;
   constructor(private panierserv:PanierService){}
 
   mesAchats$=this.panierserv.achats
 
   ngOnInit():void{
-
+    this.calculSomme()
   }
 
   incrementOuDecrement(produit:Produit,plusOuMoins:number){
@@ -24,5 +24,9 @@ export class PanierComponent {
 
   delete(produit:Produit){
     this.panierserv.remove(produit)
+  }
+
+  calculSomme(){
+    this.somme=this.panierserv.PricePanier()
   }
 }
