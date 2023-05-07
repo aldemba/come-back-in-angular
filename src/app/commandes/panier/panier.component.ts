@@ -22,4 +22,7 @@ export class PanierComponent {
     this.panierserv.plusOuMoins(produit,plusOuMoins)
   }
 
+  delete(produit:Produit){
+    this.panierserv.remove(produit)
+  }
 }

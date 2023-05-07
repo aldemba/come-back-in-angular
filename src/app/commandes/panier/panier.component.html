@@ -22,6 +22,7 @@
                        <span style="width: 40px; cursor:pointer" (click)="incrementOuDecrement(cart,1)">+</span>
                     </div>
                     <div class="col"> {{cart.prix * cart.quantite}}FCFA <span class="close"></span></div>
+                    <div class="col"><span (click)="delete(cart)" style="cursor: pointer;" class="close">X</span></div>
                 </div> 
             </div>
 

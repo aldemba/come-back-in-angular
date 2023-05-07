@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { PanierService } from 'src/app/shared/services/panier.service';
 import { SearchService } from 'src/app/shared/services/search.service';
 
 @Component({
@@ -8,10 +9,11 @@ import { SearchService } from 'src/app/shared/services/search.service';
 })
 export class HeaderComponent {
 
-
-  constructor(private search:SearchService){
-
+  
+  constructor(private search:SearchService, private panier:PanierService){
+    
   }
+  panierItems$=this.panier.achats
 
   @Output() info=new EventEmitter<string>()
 

@@ -5,6 +5,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
+
         <ul class="navbar-nav me-auto">
 
           <li class="nav-item">
@@ -17,10 +18,11 @@
             <a class="nav-link" (click)="emetDonnees('Menu')" >Menus</a>
           </li>
           <li class="nav-item">
-            <a href="/panier" class="nav-link" style="cursor: pointer;">Panier</a>
+            <a href="/panier" class="nav-link" style="cursor: pointer;">Panier <span>{{(panierItems$|async)?.length}}</span></a>
           </li>
        
         </ul>
+
         <form class="d-flex">
           <input class="form-control me-sm-2" #searchBox (keyup)="recherche(searchBox.value)" type="search" placeholder="Rechercher">
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
