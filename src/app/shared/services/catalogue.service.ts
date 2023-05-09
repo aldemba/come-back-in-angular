@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Catalogue } from '../models/catalogue';
+import { Produit } from '../models/produit';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +29,7 @@ private urlCatalogue:string="http://localhost:8000/api/catalogues"
     )
     
   }
+
+  public getById(id:number, tab: Produit[]){  return tab.find(param => param.id == id)}
+
 }

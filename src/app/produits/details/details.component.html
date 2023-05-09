@@ -34,8 +34,8 @@
   
               <form class="d-flex justify-content-left">
                 <!-- Default input -->
-                <input #quantity type="number" min="1" value="1" aria-label="Search" class="form-control" style="width: 100px">
-                <button class="btn btn-warning btn-md my-0 p" (click)="addToCart(details.produit,quantity.value)" >Ajoutez au panier
+                <input #quantity type="number" min="1" value="1" aria-label="Search" class="form-control" style="width: 100px"> 
+                <button class="btn btn-warning btn-md my-0 p" (click)="addToCart(details.produit,+quantity.value)" >Ajoutez au panier
                   <i class="fas fa-shopping-cart ml-1"></i>
                 </button>
   
@@ -109,8 +109,27 @@
           </table>
         -->
         </div>
+
+    
   
        </ng-container>
+       <div class="container my-2">
+        <h5>Produits Similaires</h5>
+        <div class="row row-cols-1 row-cols-md-5 d-flex">
+            <ng-container *ngFor="let sim of produitsSimilaires" >
+              <div class="card mb-3" style="width: 19rem;" appBorder>
+                <img class="card-img-top" style="height: 10rem" src="data:image/PNG;base64,{{sim.image}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ sim.prix }}F</h5>
+                  <p class="card-text">{{ sim.nom }}</p>
+                  <small class="card-text">{{ sim.description }}</small>
+                  <a routerLink="/client/details/{{sim.id}}"class="btn btn-success tout">Details</a>
+              <!--   <button class="colo btn-warning tout" (click)="addToCart(sim,1)">Ajouter au panier</button> -->
+                </div>
+             </div>
+            
+            </ng-container>        </div>
+    </div>
   
         <hr>
       <h5>Portions de Frites</h5>

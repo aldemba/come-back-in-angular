@@ -52,7 +52,7 @@ export class PanierService {
               // }
                 produits.forEach(p => {
                   if(p.id == produit.id)
-                    p.quantite+=Number(quantite) ;
+                    p.quantite+=Number  (quantite) ;
                 })
             }
           }
