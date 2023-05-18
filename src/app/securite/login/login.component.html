@@ -12,19 +12,26 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
   
-                  <form>
+                  <form #f="ngForm" (ngSubmit)="onSubmit()" >
   
   
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez vous à votre compte</h5>
   
                     <div class="form-outline mb-4">
                         <label class="form-label" for="login">Login</label>
-                      <input name="login" type="login" id="login" class="form-control form-control-lg" >
+                      <input name="login" type="login" id="login" class="form-control form-control-lg" [(ngModel)]="form.login" #login="ngModel" required>
+                      <div class="form_error" *ngIf="login.invalid && f.submitted">
+                        <div *ngIf="login.errors?.['required']">login obligatoire !</div>
+                      </div>
                     </div>
   
                     <div class="form-outline mb-4">
                         <label class="form-label" for="password">Mot de Passe</label>
-                      <input name="password" type="password" id="password" class="form-control form-control-lg" />
+                        <input name="password" type="password" id="password" class="form-control form-control-lg" [(ngModel)]="form.password" #password="ngModel" required minlength="6"/>
+                        <div *ngIf="password.invalid &&  f.submitted" class="form_error">
+                          <div *ngIf="password.errors?.['required']">mot de passe obligatoire !</div>
+                          <div *ngIf="password.errors?.['minlength']">le password doit avoir 6 caractères au minimum</div>
+                        </div>
                     </div>
   
                     <div class="pt-1 mb-4">
