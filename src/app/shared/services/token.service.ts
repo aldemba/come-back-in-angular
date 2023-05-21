@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class TokenService {
 
-  saveId(id: number){  localStorage.setItem("id", ""+id);    }
+  saveId(id: number){  localStorage.setItem("id",id.toString());    }
 
   getId(){  return localStorage.getItem("id");    }
 
@@ -15,11 +15,13 @@ export class TokenService {
   // getUser(token: string){  return JSON.parse(atob(token.split(".")[1]))}
   //atob a été déprécié
 
-  getUser(token: string) {
-    const base64Token = token.split(".")[1];
-    const decodedToken = JSON.parse(Buffer.from(base64Token, 'base64').toString('utf8'));
-    return decodedToken;
-  }
+  // getUser(token: string) {
+  //   const base64Token = token.split(".")[1];
+  //   const decodedToken = JSON.parse(Buffer.from(base64Token, 'base64').toString('utf8'));
+  //   return decodedToken;
+  // }
+  
+  getUser(token: string){  return JSON.parse(atob(token.split(".")[1]))}
   
 
   getToken(): string | null{  return localStorage.getItem("token") }

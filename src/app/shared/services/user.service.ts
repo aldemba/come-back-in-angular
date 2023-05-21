@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TokenService } from './token.service';
-import { throwError,firstValueFrom,catchError } from 'rxjs';
+import { throwError,firstValueFrom,catchError, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +13,24 @@ export class UserService {
 
   // public getUsername() {  return this.tokenservice.getUser(this.tokenservice.getToken()).username  }
 
-  public async getAllUsers():Promise<any>  {  return await firstValueFrom(this.http.get<any>(this.url_allUsers).pipe( catchError(this.handleError)));}
+  public async getAllUsers():Promise<any>  { 
+
+     return await firstValueFrom(this.http.get<any>(this.url_allUsers).pipe( catchError(this.handleError), map(response=>response['hydra:member'])));
+
+  }
 
 
-  public getUsername() {
-    const token = this.tokenservice.getToken();
-    if (token !== null && typeof token === 'string') {
+    public getUsername() {
+      const token = this.tokenservice.getToken();
+      if (token !== null && typeof token === 'string') {
       const user = this.tokenservice.getUser(token);
       if (user !== null && typeof user.username === 'string') {
+        // console.log(user.username);
         return user.username;
+        
       }
     }
+    
     // Traitez le cas où le token est nul, n'est pas une chaîne de caractères
     // ou lorsque l'utilisateur ou le nom d'utilisateur n'est pas disponible
     // return 'Nom d'utilisateur non disponible';
@@ -48,12 +55,18 @@ export class UserService {
   async getClientId()
   {
     let username = this.getUsername()
+    console.log(username);
+    
 
     let users = await this.getAllUsers()
+    console.log(users);
+    
       
-    let client = users.find((el:any) => el.email == username);
+    let client = users.find((el:any) => el.login == username);
               
+    console.log(client.id);
     return await client.id
+    
   }
   
 }

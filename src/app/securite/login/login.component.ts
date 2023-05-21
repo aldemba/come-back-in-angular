@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Credentials } from 'src/app/shared/models/credentials';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,11 @@ import { Credentials } from 'src/app/shared/models/credentials';
 })
 export class LoginComponent {
 
-  constructor(){}
+  public erroMessage = ""
+
+
+  constructor(private authservice:AuthService){}
+  
 
   ngOnInit():void{
 
@@ -20,7 +25,7 @@ export class LoginComponent {
   }
 
   onSubmit(){
-    
+    this.authservice.login(this.form).catch((err)=>(this.erroMessage=err))
   }
 
 }

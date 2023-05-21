@@ -17,7 +17,7 @@ export class CatalogueComponent {
 
   ngOnInit():void {
     this.catalogueservice.all().subscribe((data)=>{
-      console.log(data);
+      // console.log(data);
       this.produit=data.produit
       
     })

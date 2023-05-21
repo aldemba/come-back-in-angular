@@ -33,7 +33,7 @@ ngOnInit():void{
 
         this.dservice.getDetails(id).subscribe((data)=>{
           this.details=data
-          console.log(data);
+          // console.log(data);
   
           this.produitsSimilaires=[];
 
@@ -47,7 +47,7 @@ ngOnInit():void{
             this.produitsSimilaires=this.shuffleArray(this.produitsSimilaires);
           }
 
-          console.log(this.produitsSimilaires); 
+          // console.log(this.produitsSimilaires); 
         })
       })
     }

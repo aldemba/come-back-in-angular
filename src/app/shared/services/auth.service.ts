@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Credentials } from '../models/credentials';
 import { Itoken } from '../models/itoken';
 import { Observable, catchError, firstValueFrom, throwError } from 'rxjs';
@@ -17,6 +17,15 @@ export class AuthService {
 
   url="http://localhost:8000/api/login_check"
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': `Bearer ${this.tokenserv.getToken()}`,
+    })
+  }
+
+  
+
 
   constructor(private http:HttpClient,private tokenserv:TokenService,private redirige:Router,private userserv:UserService) { }
 
@@ -30,7 +39,7 @@ export class AuthService {
   public async login(body : Credentials)
   {
     return await firstValueFrom(
-      this.http.post<Itoken>(this.url, body).pipe(
+      this.http.post<Itoken>(this.url, body,this.httpOptions).pipe(
         catchError( error => {            
           if(error.status == 401)
             console.log("Login et/ou mot de passe incorrect(s)!")
@@ -41,11 +50,13 @@ export class AuthService {
     {
       this.tokenserv.saveToken(data.token)  ;  
       this.user = (this.tokenserv.getUser(data.token));
+      console.log(this.user);
+      
       this.userserv.getClientId().then(m =>
         this.tokenserv.saveId(m)        
       );
             
-      (this.hasRole("ROLE_CLIENT")) ?  this.redirige.navigate(["/client"]) : this.redirige.navigate(["/admin/commandes"])
+      (this.hasRole("ROLE_CLIENT")) ?  this.redirige.navigate(["/client"]) : this.redirige.navigate(["/client/details/1"])
     })
   }
 
