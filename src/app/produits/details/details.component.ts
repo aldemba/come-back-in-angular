@@ -56,7 +56,29 @@ ngOnInit():void{
 
 
 addToCart(produit: Produit,quantite:number) {
+  let complementsChoisis=document.getElementsByName("choisis[]") //les checkbox de chaque complément
+  // let qtecomplementsChoisis=document.getElementsByName("qteChoisie[]") //les checkbox de chaque complément
+  let tableauBoissons:any = []
+  
+  if(complementsChoisis.length>0){
+    complementsChoisis.forEach(c=>{
+      if((<HTMLInputElement>c).checked){
+
+        let qte=(<HTMLInputElement>c.nextElementSibling).value
+        let idComplement=(<HTMLInputElement>c).value
+        let objet={
+          "boissons":"/api/boissons/"+idComplement,
+          "quantite":+qte
+        }
+        tableauBoissons.push(objet)
+        
+      }
+    })
+  }
+  produit=Object.assign({},produit,{"boissons":tableauBoissons})
   // produit["quantite"] = quantite;
+  console.log(produit);
+  
   this.panier.ajouterAuPanier(produit,quantite);
 }
 

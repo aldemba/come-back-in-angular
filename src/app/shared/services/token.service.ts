@@ -13,13 +13,14 @@ export class TokenService {
   saveToken(token: string){  localStorage.setItem("token", token);    }
 
   // getUser(token: string){  return JSON.parse(atob(token.split(".")[1]))}
-  //atob a été déprécié
-
+  
   // getUser(token: string) {
   //   const base64Token = token.split(".")[1];
   //   const decodedToken = JSON.parse(Buffer.from(base64Token, 'base64').toString('utf8'));
   //   return decodedToken;
   // }
+
+  //Pour utiliser atob, il faut installer Buffer
   
   getUser(token: string){  return JSON.parse(atob(token.split(".")[1]))}
   

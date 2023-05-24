@@ -15,6 +15,7 @@ export class PanierComponent {
   mesAchats$=this.panierserv.achats
 
   ngOnInit():void{
+    // this.panierService.getPanier().subscribe(produits => { this.elements = produits }), j'avais le choix entre mesAchats$ et utliser le pipe async dans la vue ou cette methode
     this.calculSomme()
   }
 

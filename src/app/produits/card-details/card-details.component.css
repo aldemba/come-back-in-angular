@@ -9,3 +9,8 @@
     display: flex;
     gap: 9%;
 }
+
+.dis{
+    display: flex;
+    flex-direction: row;
+}
