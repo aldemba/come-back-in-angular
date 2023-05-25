@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Details } from 'src/app/shared/models/details';
 import { Produit } from 'src/app/shared/models/produit';
 import { CatalogueService } from 'src/app/shared/services/catalogue.service';
@@ -15,11 +15,13 @@ export class DetailsComponent {
 details:any|null;
 produitsSimilaires:Produit[] = []
 
+headerVisible=true;
+
   menus:Produit[]=[];
   burgers:Produit[]=[];
 //    produits:Produit;
 
-constructor(private route:ActivatedRoute, private dservice:DetailsService, private panier:PanierService, private catalogue:CatalogueService){}
+constructor(private route:ActivatedRoute, private dservice:DetailsService, private panier:PanierService, private catalogue:CatalogueService, private router:Router){}
 
 ngOnInit():void{
   this.catalogue.all().subscribe({
@@ -48,15 +50,34 @@ ngOnInit():void{
           }
 
           // console.log(this.produitsSimilaires); 
+          //  this.checkHeader();
         })
       })
     }
   })
 }
 
+checkHeader(){
+//methode pour récupérer la route actuelle
+let routeActuelle=this.router.url;
+
+if(routeActuelle=='/client/details/15'){
+  // console.log(routeActuelle);
+  this.headerVisible=false;
+
+}else{
+  this.headerVisible=true;
+
+}
+
+}
+
+
+
 
 addToCart(produit: Produit,quantite:number) {
   let complementsChoisis=document.getElementsByName("choisis[]") //les checkbox de chaque complément
+  // let imgc=document.getElementsByName("imagec")
   // let qtecomplementsChoisis=document.getElementsByName("qteChoisie[]") //les checkbox de chaque complément
   let tableauBoissons:any = []
   
@@ -66,8 +87,12 @@ addToCart(produit: Produit,quantite:number) {
 
         let qte=(<HTMLInputElement>c.nextElementSibling).value
         let idComplement=(<HTMLInputElement>c).value
+        let image=(<HTMLInputElement>c).src
+        console.log(image);
+        
         let objet={
-          "boissons":"/api/boissons/"+idComplement,
+          // "image":image,
+          "tailleboisson":"/api/taille_boissons/"+idComplement,
           "quantite":+qte
         }
         tableauBoissons.push(objet)
@@ -75,9 +100,10 @@ addToCart(produit: Produit,quantite:number) {
       }
     })
   }
-  produit=Object.assign({},produit,{"boissons":tableauBoissons})
+  produit=Object.assign({},produit,{"tailleBoissons":tableauBoissons})
   // produit["quantite"] = quantite;
   console.log(produit);
+  
   
   this.panier.ajouterAuPanier(produit,quantite);
 }

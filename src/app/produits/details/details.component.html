@@ -1,8 +1,8 @@
 
-   <!--{{details|json}}-->
+  <!-- {{details|json}} -->
 
 <ng-container >
-    <app-header></app-header>
+    <app-header *ngIf="!headerVisible"></app-header>
     <main class="mt-5 pt-4 ">
       <div class="container dark-grey-text mt-5">
   
@@ -52,7 +52,7 @@
         <h5>Composition du menu</h5>
         <div >
         
-        <!--  <table class="table table-striped">
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Image</th>
@@ -81,6 +81,7 @@
                 </tr>
   
                 <tr *ngFor="let menutaille of details.produit.menuTailles">
+                 <!-- {{menutaille|json}}-->
                   <div class="accordion w-100" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
@@ -107,7 +108,7 @@
             </tbody>
   
           </table>
-        -->
+        
         </div>
 
     

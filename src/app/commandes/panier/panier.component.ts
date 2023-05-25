@@ -8,7 +8,7 @@ import { PanierService } from 'src/app/shared/services/panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent {
-
+  // prixTotal=0;
   somme=0;
   constructor(private panierserv:PanierService){}
 
@@ -30,4 +30,12 @@ export class PanierComponent {
   calculSomme(){
     this.somme=this.panierserv.PricePanier()
   }
+
+  // totalPrice(){
+  //   this.panierserv.getPanier().subscribe({
+  //     next:data=>{
+  //       this.prixTotal=0;
+  //     }
+  //   })
+  // }
 }

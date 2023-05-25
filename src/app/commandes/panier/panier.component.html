@@ -17,7 +17,7 @@
                         <div class="row text-muted">{{cart.nom}}</div>
                     </div>
                     <div class="col">
-                     <!--   {{cart|json}} -->
+                     <!--  {{cart|json}} -->
                         <span style="width: 40px; cursor:pointer" (click)="incrementOuDecrement(cart,-1);calculSomme()">-</span>
                         <a class="border">{{cart.quantite}}</a>
                         <span style="width: 40px; cursor:pointer" (click)="incrementOuDecrement(cart,1);calculSomme()">+</span>
