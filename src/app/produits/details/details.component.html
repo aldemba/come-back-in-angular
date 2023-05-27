@@ -2,7 +2,8 @@
   <!-- {{details|json}} -->
 
 <ng-container >
-    <app-header *ngIf="!headerVisible"></app-header>
+   <!-- <app-header *ngIf="!headerVisible"></app-header> -->
+    <app-header></app-header>
     <main class="mt-5 pt-4 ">
       <div class="container dark-grey-text mt-5">
   
@@ -91,10 +92,11 @@
                         
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                          <ng-container *ngFor=" let tailleBoisson of menutaille.taille.tailleBoissons ">
-                            
+                          <ng-container *ngFor="let tailleBoisson of menutaille.taille.tailleBoissons ">
+                            <!--{{tailleBoisson|json}}-->
                             <img src="data:image/PNG;base64,{{ tailleBoisson.boisson.image }}" alt="" style="width: 4rem;">
-                            <input type="checkbox" name="" id="">
+                            <input type="checkbox" value="{{tailleBoisson.boisson.id}}"  name="accomp[]" id="">
+                            <input type="number" value="0" name="qte[]">
                           </ng-container>
                         </div>
                     </div>

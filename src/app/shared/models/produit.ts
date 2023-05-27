@@ -7,5 +7,6 @@ export interface Produit {
     prix:number
     "@type":string
     type:string
+    // tailleBoissons:Produit[]!
 
 }

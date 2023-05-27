@@ -19,7 +19,6 @@ headerVisible=true;
 
   menus:Produit[]=[];
   burgers:Produit[]=[];
-//    produits:Produit;
 
 constructor(private route:ActivatedRoute, private dservice:DetailsService, private panier:PanierService, private catalogue:CatalogueService, private router:Router){}
 
@@ -49,35 +48,33 @@ ngOnInit():void{
             this.produitsSimilaires=this.shuffleArray(this.produitsSimilaires);
           }
 
-          // console.log(this.produitsSimilaires); 
-          //  this.checkHeader();
         })
       })
     }
   })
 }
 
-checkHeader(){
-//methode pour récupérer la route actuelle
-let routeActuelle=this.router.url;
+// checkHeader(){
+// //methode pour récupérer la route actuelle
+// let routeActuelle=this.router.url;
 
-if(routeActuelle=='/client/details/15'){
-  // console.log(routeActuelle);
-  this.headerVisible=false;
+// if(routeActuelle=='/client/details/15'){
+//   // console.log(routeActuelle);
+//   this.headerVisible=false;
 
-}else{
-  this.headerVisible=true;
+// }else{
+//   this.headerVisible=true;
 
-}
+// }
 
-}
+// }
 
 
 
 
 addToCart(produit: Produit,quantite:number) {
   let complementsChoisis=document.getElementsByName("choisis[]") //les checkbox de chaque complément
-  // let imgc=document.getElementsByName("imagec")
+  let imgc=document.getElementById("imagec");
   // let qtecomplementsChoisis=document.getElementsByName("qteChoisie[]") //les checkbox de chaque complément
   let tableauBoissons:any = []
   
@@ -87,11 +84,8 @@ addToCart(produit: Produit,quantite:number) {
 
         let qte=(<HTMLInputElement>c.nextElementSibling).value
         let idComplement=(<HTMLInputElement>c).value
-        let image=(<HTMLInputElement>c).src
-        console.log(image);
-        
+
         let objet={
-          // "image":image,
           "tailleboisson":"/api/taille_boissons/"+idComplement,
           "quantite":+qte
         }
@@ -101,7 +95,7 @@ addToCart(produit: Produit,quantite:number) {
     })
   }
   produit=Object.assign({},produit,{"tailleBoissons":tableauBoissons})
-  // produit["quantite"] = quantite;
+  
   console.log(produit);
   
   
