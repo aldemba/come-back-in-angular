@@ -27,10 +27,21 @@ export class TokenService {
 
   getToken(): string | null{  return localStorage.getItem("token") }
 
+
+  isLogged():boolean{
+
+    const token=localStorage.getItem('token')
+
+    return !!token
+  }
+
+
+
   clearToken()
   {
     localStorage.removeItem("token");
-    this.router.navigate(["/auth/connexion"])
+    // location.reload();
+     this.router.navigate(["security/login"])
   }
 
 

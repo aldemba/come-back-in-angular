@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Produit } from '../models/produit';
 import { BehaviorSubject, map, Observable, take } from 'rxjs';
+import { Panier } from '../models/panier';
 
 
 @Injectable({
@@ -22,6 +23,9 @@ export class PanierService {
 
   ajouterAuPanier(produit: Produit,quantite:number)
   {
+    // produit.boissons=[]
+    // this.panier.value.produits.push(produit);
+    // this.mesAchatSubject.next(this.panier.value.produits);
     this.achats.pipe(
       take(1),
 
@@ -138,5 +142,18 @@ export class PanierService {
     ).subscribe();
     return tab
   }
+
+
+  // panier:BehaviorSubject<Panier>=new BehaviorSubject<Panier>({
+  //   produits:[],
+  //   portions:[],
+  //   boissons:[]
+  // })
+
+//   addPanier(produit:Produit, qte:any){
+
+// }
+
+  
 
 }

@@ -14,13 +14,13 @@ export class PanierComponent {
 
   mesAchats$=this.panierserv.achats
 
-  // elts:any=[]
+  public elts:any=[]
 
   ngOnInit():void{
     
     // this.panierService.getPanier().subscribe(produits => { this.elements = produits }), j'avais le choix entre mesAchats$ et utliser le pipe async dans la vue ou cette methode
-    // this.panierserv.getPanier().subscribe(produits =>{ this.elts = produits })
-    // console.log(this.elts);
+     this.panierserv.getPanier().subscribe(produits =>{ this.elts = produits })
+     console.log(this.elts);
     
     this.calculSomme()
   }

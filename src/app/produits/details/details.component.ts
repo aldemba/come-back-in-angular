@@ -73,28 +73,29 @@ ngOnInit():void{
 
 
 addToCart(produit: Produit,quantite:number) {
-  let complementsChoisis=document.getElementsByName("choisis[]") //les checkbox de chaque complément
-  let imgc=document.getElementById("imagec");
-  // let qtecomplementsChoisis=document.getElementsByName("qteChoisie[]") //les checkbox de chaque complément
-  let tableauBoissons:any = []
+   let complementsChoisis=document.getElementsByName("choisis[]") //les checkbox de chaque complément
+      // let imgc=document.getElementById("imagec");
+   // let qtecomplementsChoisis=document.getElementsByName("qteChoisie[]") //les checkbox de chaque complément
+   let tableauBoissons:any = []
   
-  if(complementsChoisis.length>0){
-    complementsChoisis.forEach(c=>{
-      if((<HTMLInputElement>c).checked){
+   if(complementsChoisis.length>0){
+     complementsChoisis.forEach(c=>{
+       if((<HTMLInputElement>c).checked){
 
-        let qte=(<HTMLInputElement>c.nextElementSibling).value
-        let idComplement=(<HTMLInputElement>c).value
+         let qte=(<HTMLInputElement>c.nextElementSibling).value
+         let idComplement=(<HTMLInputElement>c).value
 
-        let objet={
-          "tailleboisson":"/api/taille_boissons/"+idComplement,
-          "quantite":+qte
-        }
-        tableauBoissons.push(objet)
+         let objet={
+          "@type":"Boisson",
+           "boissons":"/api/boissons/"+idComplement,
+           "quantite":+qte
+         }
+         tableauBoissons.push(objet)
         
-      }
-    })
-  }
-  produit=Object.assign({},produit,{"tailleBoissons":tableauBoissons})
+       }
+     })
+   }
+   produit=Object.assign({},produit,{"tailleBoissons":tableauBoissons})
   
   console.log(produit);
   
@@ -102,6 +103,14 @@ addToCart(produit: Produit,quantite:number) {
   this.panier.ajouterAuPanier(produit,quantite);
 }
 
+// addBoissonMenu(boisson:Produit,menuId:any){
+//   boisson.quantite=1
+//    let produit=  this.panier.panier.value.produits.find(p=> p.id==menuId)
+//     if(produit) produit.boissons?.push(boisson)
+//     console.log(this.panier.panier.value.produits)
+//     console.log(menuId)
+//     console.log(produit)
+// }
 
 public shuffleArray(array:Produit[]) {
   for (var i = array.length - 1; i > 0; i--) {

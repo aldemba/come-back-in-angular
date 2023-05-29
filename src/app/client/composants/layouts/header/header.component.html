@@ -20,6 +20,16 @@
           <li class="nav-item">
             <a href="/panier" class="nav-link" style="cursor: pointer;">Panier <span>{{(panierItems$|async)?.length}}</span></a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="estConnecte; else connexionBtn" (click)="logout()" >Deconnexion</a>
+          </li>
+
+          <ng-template #connexionBtn >
+            <li  class="nav-item">
+              <a class="nav-link" (click)="login()" >Connexion</a>
+            </li>
+          </ng-template>
        
         </ul>
 

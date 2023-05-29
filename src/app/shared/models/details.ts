@@ -6,6 +6,7 @@ export interface Details {
     produit: Produit
     boissons: Boisson[]
     portions: Portion[]
+    tailleBoissons:any[]
   }
   
   export interface Produit {

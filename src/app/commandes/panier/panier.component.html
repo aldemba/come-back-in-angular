@@ -17,16 +17,21 @@
                         <div class="row text-muted">{{cart.nom}}</div>
                     </div>
                     <div class="col">
-                      {{cart|json}} -->
+                      <!--{{cart.tailleBoissons|json}} -->
                         <span style="width: 40px; cursor:pointer" (click)="incrementOuDecrement(cart,-1);calculSomme()">-</span>
                         <a class="border">{{cart.quantite}}</a>
                         <span style="width: 40px; cursor:pointer" (click)="incrementOuDecrement(cart,1);calculSomme()">+</span>
                     </div>
                     <div class="col"> {{cart.prix * cart.quantite}}FCFA <span class="close"></span></div>
                     <div class="col"><span (click)="delete(cart);calculSomme()" style="cursor: pointer;" class="close">X</span></div>
+                    <div class="col" *ngFor="let bo of cart.tailleBoissons">
+                        {{bo.quantite|json}}
+
+                    </div>
                 </div> 
             </div>
 
+         
 
       
        
