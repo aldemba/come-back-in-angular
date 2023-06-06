@@ -4,7 +4,7 @@
         <!--<img class="card-img-top" name="imagec" style="height: 7rem" src="data:image/PNG;base64,{{transfert.image}}"> -->
         <img class="card-img-top"id="imagec" style="height: 7rem" src="data:image/PNG;base64,{{transfert.image}}">
     </div>
-    <input type="checkbox" value="{{transfert.id}}" name="choisis[]">
+    <input type="checkbox" data-type="transfert['@type']" value="{{transfert.id}}" name="choisis[]">
     <input type="number" min="0" value="0" aria-label="Search" name="qteChoisie[]" class="form-control" style="width: 80px; height: 29px;">
 </div>
     

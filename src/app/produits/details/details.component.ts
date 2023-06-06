@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Details } from 'src/app/shared/models/details';
 import { Produit } from 'src/app/shared/models/produit';
 import { CatalogueService } from 'src/app/shared/services/catalogue.service';
+import { ComplementService } from 'src/app/shared/services/complement.service';
 import { DetailsService } from 'src/app/shared/services/details.service';
 import { PanierService } from 'src/app/shared/services/panier.service';
 
@@ -14,13 +15,15 @@ import { PanierService } from 'src/app/shared/services/panier.service';
 export class DetailsComponent {
 details:any|null;
 produitsSimilaires:Produit[] = []
+selectedElements: string[]=[];
+
 
 headerVisible=true;
 
   menus:Produit[]=[];
   burgers:Produit[]=[];
 
-constructor(private route:ActivatedRoute, private dservice:DetailsService, private panier:PanierService, private catalogue:CatalogueService, private router:Router){}
+constructor(private route:ActivatedRoute, private dservice:DetailsService, private panier:PanierService, private catalogue:CatalogueService, private router:Router, private comp:ComplementService){}
 
 ngOnInit():void{
   this.catalogue.all().subscribe({
@@ -51,6 +54,11 @@ ngOnInit():void{
         })
       })
     }
+  })
+  this.comp.elementsSelectionnes$.subscribe(el=>{
+    this.selectedElements=el
+    console.log(this.selectedElements);
+    
   })
 }
 
