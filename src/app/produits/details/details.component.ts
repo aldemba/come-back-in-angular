@@ -15,7 +15,7 @@ import { PanierService } from 'src/app/shared/services/panier.service';
 export class DetailsComponent {
 details:any|null;
 produitsSimilaires:Produit[] = []
-selectedElements: string[]=[];
+selectedElements: any[]=[];
 
 
 headerVisible=true;
@@ -94,8 +94,8 @@ addToCart(produit: Produit,quantite:number) {
          let idComplement=(<HTMLInputElement>c).value
 
          let objet={
-          "@type":"Boisson",
-           "boissons":"/api/boissons/"+idComplement,
+          "@type":"TailleBoisson",
+           "TailleBoisson":"/api/taille_boissons/"+idComplement,
            "quantite":+qte
          }
          tableauBoissons.push(objet)

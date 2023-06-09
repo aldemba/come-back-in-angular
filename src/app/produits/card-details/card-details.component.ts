@@ -8,4 +8,6 @@ import { Details } from 'src/app/shared/models/details';
 })
 export class CardDetailsComponent {
 @Input() transfert:any
+
+
 }

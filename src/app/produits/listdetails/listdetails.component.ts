@@ -13,18 +13,26 @@ export class ListdetailsComponent {
 
 @Input() listedescomplements:Details[]|undefined=[];
 
-elementsSelectionnes: any[]=[];
+// elementsSelectionnes: any[]=[];
 
 onCheckboxChange(event: any) {
   const elementId = event.target.value;
   const isChecked = event.target.checked;
+  const elementType = event.target.dataset.type;
+  const elementName = event.target.dataset.nom;
 
   if (isChecked) {
-    this.comp.ajouterElementSelectionne(elementId);
+    const newElement={id:elementId,nom:elementName,type:elementType}
+    this.comp.ajouterElementSelectionne(newElement);
   } else {
-    this.comp.supprimerElementSelectionne(elementId);
+     this.comp.supprimerElementSelectionne(elementId);
+    }
   }
-}
+
+  onQuantiteChange(event:any,){
+
+  }
+
 
 
 }

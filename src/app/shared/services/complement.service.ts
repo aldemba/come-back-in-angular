@@ -11,15 +11,20 @@ export class ComplementService {
 
   constructor() {}
 
+  // updateSelectedElements(elements: any[]) {
+  //   this.elementsSelectionnesSubject.next(elements);
+  // }
+
   ajouterElementSelectionne(element: any) {
     const elementsSelectionnes = this.elementsSelectionnesSubject.getValue();
     elementsSelectionnes.push(element);
     this.elementsSelectionnesSubject.next(elementsSelectionnes);
   }
 
-  supprimerElementSelectionne(element: any) {
+  supprimerElementSelectionne(elementId: any) {
     const elementsSelectionnes = this.elementsSelectionnesSubject.getValue();
-    const index = elementsSelectionnes.indexOf(element);
+    // const index = elementsSelectionnes.indexOf(element);
+    const index = elementsSelectionnes.findIndex(element => element.id === elementId);
     if (index > -1) {
       elementsSelectionnes.splice(index, 1);
       this.elementsSelectionnesSubject.next(elementsSelectionnes);
