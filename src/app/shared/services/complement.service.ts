@@ -11,9 +11,9 @@ export class ComplementService {
 
   constructor() {}
 
-  // updateSelectedElements(elements: any[]) {
-  //   this.elementsSelectionnesSubject.next(elements);
-  // }
+  updateSelectedElements(elements: any[]) {
+    this.elementsSelectionnesSubject.next(elements);
+  }
 
   ajouterElementSelectionne(element: any) {
     const elementsSelectionnes = this.elementsSelectionnesSubject.getValue();
