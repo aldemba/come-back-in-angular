@@ -11,6 +11,16 @@ export class ComplementService {
 
   constructor() {}
 
+  updateQuantiteElement(elementId: any, quantite: number) {
+    const elementsSelectionnes = this.elementsSelectionnesSubject.getValue();
+    const element = elementsSelectionnes.find((el: any) => el.id === elementId);
+    if (element) {  
+      element.quantite = quantite;
+      this.elementsSelectionnesSubject.next(elementsSelectionnes);
+    }
+  }
+  
+
   updateSelectedElements(elements: any[]) {
     this.elementsSelectionnesSubject.next(elements);
   }

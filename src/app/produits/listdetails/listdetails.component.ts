@@ -29,10 +29,7 @@ onCheckboxChange(event: any) {
     }
   }
 
-  onQuantiteChange(event:any,){
-
-  }
-
+ 
 
 
 }

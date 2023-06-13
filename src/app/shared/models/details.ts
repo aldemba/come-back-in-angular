@@ -2,6 +2,8 @@ export interface Details {
     "@context": string
     "@id": string
     "@type": string
+    nom:string
+    image:string
     id: number
     produit: Produit
     boissons: Boisson[]
