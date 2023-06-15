@@ -81,7 +81,7 @@ ngOnInit():void{
 
 
 addToCart(produit: Produit,quantite:number) {
-   let complementsChoisis=document.getElementsByName("choisis[]") //les checkbox de chaque complément
+   let complementsChoisis=document.getElementsByName("accomp[]") //les checkbox de chaque complément
       // let imgc=document.getElementById("imagec");
    // let qtecomplementsChoisis=document.getElementsByName("qteChoisie[]") //les checkbox de chaque complément
    let tableauBoissons:any = []
@@ -103,7 +103,31 @@ addToCart(produit: Produit,quantite:number) {
        }
      })
    }
-   produit=Object.assign({},produit,{"tailleBoissons":tableauBoissons})
+
+   const checkboxes = document.getElementsByName("choisis[]") as NodeListOf<HTMLInputElement>;
+   const qteInputs = document.getElementsByName("qteChoisie[]") as NodeListOf<HTMLInputElement>;
+   const tableauComplements: any[] = [];
+ 
+   checkboxes.forEach((checkbox, index) => {
+     if (checkbox.checked) {
+       const qteInput = qteInputs[index];
+       const qte = Number(qteInput.value);
+       const idComplement = checkbox.value;
+       const typeComplement = checkbox.getAttribute("data-type");
+       const nomComplement = checkbox.getAttribute("data-nom");
+ 
+       const complement = {
+         id: idComplement,
+         type: typeComplement,
+         nom: nomComplement,
+         quantite: qte
+       };
+ 
+       tableauComplements.push(complement);
+     }
+   });
+
+   produit=Object.assign({},produit,{"tailleBoissons":tableauBoissons,"complements":tableauComplements})
   
   console.log(produit);
   

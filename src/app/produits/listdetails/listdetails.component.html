@@ -1,20 +1,19 @@
-<div class="allist">
+<!--<div class="allist">
     <div *ngFor="let uncomplement of listedescomplements" > 
          <app-card-details [transfert]="uncomplement" (change)="onCheckboxChange($event);"  ></app-card-details>
     </div>
-</div>
+</div>-->
 
-<!--
-<div class="allist">
+
+<!--<div class="allist">
     <div *ngFor="let uncomplement of listedescomplements" > 
         <div class="dispo">
             <div class="card mb-3" style="width: 10rem;">
                 <img class="card-img-top" id="imagec" style="height: 7rem" src="data:image/PNG;base64,{{uncomplement.image}}">
             </div>
             <input type="checkbox" [attr.data-type]="uncomplement['@type']" [attr.data-nom]="uncomplement.nom" value="{{uncomplement.id}}" name="choisis[]">
-            <input type="number" min="0" value="0" aria-label="Search" (input)="onQuantiteChange($event, uncomplement.id)" name="qteChoisie[]" class="form-control" style="width: 80px; height: 29px;">
+            <input type="number" min="0" value="0" aria-label="Search"  name="qteChoisie[]" class="form-control" style="width: 80px; height: 29px;">
         </div>
     </div>
-</div>
+</div> -->
 
--->
