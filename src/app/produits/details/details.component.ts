@@ -118,9 +118,9 @@ addToCart(produit: Produit,quantite:number) {
  
        const complement = {
          id: idComplement,
-         type: typeComplement,
-         nom: nomComplement,
-         quantite: qte
+         "@type": typeComplement,
+         "nom": nomComplement,
+         "quantite": qte
        };
  
        tableauComplements.push(complement);
