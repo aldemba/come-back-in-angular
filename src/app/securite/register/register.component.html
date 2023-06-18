@@ -1,1 +1,44 @@
-<p>register works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Reistration Form</title>
+</head>
+<body>
+    <form [formGroup]="reactiveform">
+        <div class="container">
+          <h1 style="color: aqua; display:flex; justify-content:center">Inscription</h1>
+      <div class="form-control">
+          <label for="login"><b>Login</b></label>
+          <input type="text" name="login" placeholder="Entrer login" formControlName="login" required>
+          <span class="error" *ngIf="f['login'].getError('required')!=null" >le champ email ne peut etre vide </span> <br>
+          <span class="error" *ngIf="f['login'].getError('email')" >Entrer un email valide </span>
+      </div>
+
+        <div class="form-control">
+
+            <label for="password"><b>Password</b></label>
+            <input type="text" placeholder="Enter Password" name="password" formControlName="password" required> 
+            <span class="error" *ngIf="f['password'].getError('required')!=null">le champ password est obligatoire</span> 
+        </div>
+
+        <div class="form-control">
+
+            <label for="cpassword"><b>Confirmer Password</b></label>
+            <input type="text" placeholder="Enter Password" name="cpassword" formControlName="cpassword" required>  
+            <span class="error" *ngIf="f['cpassword'].getError('required')!=null">le champ confirmer password est obligatoire</span>
+        </div>
+
+      
+          <div class="clearfix">
+      
+            <button type="submit" class="btn">Inscription</button>
+          </div>
+        </div>
+    </form>
+
+
+</body>
+</html>

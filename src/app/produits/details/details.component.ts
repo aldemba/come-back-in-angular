@@ -115,12 +115,14 @@ addToCart(produit: Produit,quantite:number) {
        const idComplement = checkbox.value;
        const typeComplement = checkbox.getAttribute("data-type");
        const nomComplement = checkbox.getAttribute("data-nom");
+       const prixComplement = checkbox.getAttribute("data-prix");
  
        const complement = {
          id: idComplement,
          "@type": typeComplement,
          "nom": nomComplement,
-         "quantite": qte
+         "quantite": qte,
+         "prix":prixComplement
        };
  
        tableauComplements.push(complement);
