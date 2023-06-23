@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Credentials } from '../models/credentials';
 import { Itoken } from '../models/itoken';
 import { Observable, catchError, firstValueFrom, throwError } from 'rxjs';
@@ -16,6 +16,8 @@ export class AuthService {
   user:User|undefined
 
   url="http://localhost:8000/api/login_check"
+
+  url_inscription="http://localhost:8000/api/clients"
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -58,6 +60,34 @@ export class AuthService {
             
       (this.hasRole("ROLE_CLIENT")) ?  this.redirige.navigate(["/client"]) : this.redirige.navigate(["/client/details/1"])
     })
+  }
+
+
+  public inscription(body: User)
+  {
+    return this.http.post<any>(this.url_inscription, body).subscribe(
+    {
+      next: data => { 
+        console.log(data);
+        this.redirige.navigate(["/security/login"])
+      },
+      error: () => catchError(this.handleError),
+    });
+  }
+
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
 }
