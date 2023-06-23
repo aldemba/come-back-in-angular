@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Produit } from '../models/produit';
 import { BehaviorSubject, map, Observable, take } from 'rxjs';
 import { Panier } from '../models/panier';
+import Swal from 'sweetalert2';
 
 
 @Injectable({
@@ -46,6 +47,11 @@ export class PanierService {
               produit = Object.assign({}, produit, {"quantite":quantite}) //qte du produit for the very first time
 
               produits.push(produit);
+              Swal.fire({
+                html:'ajouter au panier...',
+                icon:'success',
+                timer:1000
+              })
             }
             else // si on l'a trouvé on augmente sa quantité
             {
@@ -57,6 +63,11 @@ export class PanierService {
                 produits.forEach(p => {
                   if(p.id == produit.id)
                     p.quantite+=Number  (quantite) ;
+                    Swal.fire({
+                      html:'ce prosuit existe déja! quantité ajouté',
+                      icon:'info',
+                      timer:1000
+                    })
                 })
             }
           }
