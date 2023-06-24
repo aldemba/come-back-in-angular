@@ -23,7 +23,25 @@ export class RegisterComponent {
       // login:new FormControl('',Validators.compose([Validators.required,Validators.email])),
       login:new FormControl('',Validators.pattern('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')),
       password:new FormControl('',Validators.compose([Validators.required])),
-      cpassword:new FormControl('',Validators.compose([Validators.required]))
+      cpassword:new FormControl('',Validators.compose([Validators.required])),        
+      nom: new FormControl('', Validators.compose(
+        [
+          Validators.required, 
+          Validators.minLength(2)
+        ]
+      )),
+      prenom: new FormControl('', Validators.compose(
+        [
+          Validators.required,
+          Validators.minLength(2)
+        ]
+      )),
+      telephone: new FormControl('', Validators.compose(
+        [
+          Validators.required,
+          Validators.pattern("^(77|78|75|76|70|33)[0-9]{7}$")
+        ]
+      ),)
     },{
       validators:this.MustMatch('password','cpassword')
     })

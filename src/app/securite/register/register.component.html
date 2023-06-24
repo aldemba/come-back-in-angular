@@ -18,6 +18,27 @@
           <span class="error" *ngIf="f['login'].getError('pattern')" >Entrer un email valide </span>
       </div>
 
+      <div class="form-control">
+
+        <label for="nom"><b>Nom</b></label>
+        <input type="text" placeholder="Enter nom" name="nom" formControlName="nom" required> 
+        <span class="error" *ngIf="f['nom'].getError('required')!=null">le champ nom est obligatoire</span> 
+    </div>
+
+    <div class="form-control">
+
+        <label for="telephone"><b>Téléphone</b></label>
+        <input type="text" placeholder="Enter telephone" name="telephone" formControlName="telephone" required> 
+        <span class="error" *ngIf="f['telephone'].getError('required')!=null">le champ telephone est obligatoire</span> 
+    </div>
+
+    <div class="form-control">
+
+        <label for="prenom"><b>Prenom</b></label>
+        <input type="text" placeholder="Enter prenom" name="prenom" formControlName="prenom" required> 
+        <span class="error" *ngIf="f['prenom'].getError('required')!=null">le champ prenom est obligatoire</span> 
+    </div>
+
         <div class="form-control">
 
             <label for="password"><b>Password</b></label>
