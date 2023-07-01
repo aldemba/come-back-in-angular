@@ -95,6 +95,7 @@ addToCart(produit: Produit,quantite:number) {
 
          let objet={
           "@type":"TailleBoisson",
+          "id":idComplement,
            "TailleBoisson":"/api/taille_boissons/"+idComplement,
            "quantite":+qte
          }
@@ -115,7 +116,7 @@ addToCart(produit: Produit,quantite:number) {
        const idComplement = checkbox.value;
        const typeComplement = checkbox.getAttribute("data-type");
        const nomComplement = checkbox.getAttribute("data-nom");
-       const prixComplement = checkbox.getAttribute("data-prix");
+       const prixComplement = Number(checkbox.getAttribute("data-prix"));
  
        const complement = {
          id: idComplement,
@@ -130,8 +131,10 @@ addToCart(produit: Produit,quantite:number) {
    });
 
    produit=Object.assign({},produit,{"tailleBoissons":tableauBoissons,"complements":tableauComplements})
+   
+   
   
-  console.log(produit);
+  // console.log(produit);
   
   
   this.panier.ajouterAuPanier(produit,quantite);
@@ -157,3 +160,6 @@ public shuffleArray(array:Produit[]) {
 }
 
 }
+
+
+

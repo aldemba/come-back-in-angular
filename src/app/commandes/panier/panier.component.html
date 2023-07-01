@@ -53,9 +53,10 @@
             </form> -->
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">Prix Total</div>
-                <div class="col text-right"> {{somme}}FCFA</div>
+                <!--<div class="col text-right"> {{somme}}FCFA</div>-->
+                <div class="col text-right"> {{prixTotal}}FCFA</div>
             </div>
-            <button class="btn">CHECKOUT</button>
+            <button class="btn" (click)="commander()">Commander</button>
         </div>
     </div>    
 </div>
